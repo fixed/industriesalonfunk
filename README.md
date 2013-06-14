@@ -24,3 +24,17 @@ Putting together an interactive media-device which lets users switch through con
   9. Take apart a laptop and put the damn thing into the radio-housing!
 
   10. Win.
+  
+  
+## Setup
+
+1. Install dependencies using npm install
+
+2. Copy config_template.json to config.json
+
+3. Edit config.json appropriately
+
+4. Run the server using `npm start`
+
+5. (optional) to build/optimize the sources run `npm run-script build` make sure to adjust the .html files afterwards
+  

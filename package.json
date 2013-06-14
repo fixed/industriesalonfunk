@@ -1,0 +1,25 @@
+{
+    "name": "industriesalonfunk"
+    , "private": true
+    , "author": "fde31 & fixed"
+    , "version" : "0.1.0"
+    , "contributors": [
+        { "name": "Martin Bilsing" }
+        , { "name" : "Thomas Alpers" }
+        , { "name": "Florian Demmer" }
+    ]
+    , "scripts": {
+        "start" : "node server.js"
+    }
+    , "engines": {
+        "node": ">=0.10.0"
+    }
+    , "dependencies": {
+        "connect" : "2.7.11"
+    }
+    , "devDependencies": {
+        "requirejs" : "2.1.6"
+        , "wrench" : "1.5.1"
+        , "clean-css" : "1.0.10"
+    }
+}

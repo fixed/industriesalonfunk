@@ -1,0 +1,6 @@
+{
+    "http" : {
+        "port" : "PORT TO LISTEN ON"
+    },
+    "mode" : "'development' FOR USING src FILES or 'production' FOR USING build FILES"
+}

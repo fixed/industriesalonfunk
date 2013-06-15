@@ -18,8 +18,6 @@ define([
         peak.frequency.value = 600;
         peak.gain.value = 4;
 
-        console.log(peak);
-
         this._comp = options.context.createDynamicsCompressor();
         this._comp.threshold.value = -20;
         this._comp.ratio.value = 4;

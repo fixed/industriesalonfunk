@@ -1,0 +1,57 @@
+html {
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	font: 10px/1.5 helvetica, verdana;
+	background: #999;
+	color: white;
+	text-align: center;
+}
+
+#page {
+	width: 100%;
+	display: flex;
+	align-items: center;
+}
+
+#wrapper {
+	width: 960px;
+	margin: 20px auto;
+}
+
+#video {
+	width: 960px;
+	height: 600px;
+	background: black;
+}
+
+#tuner {
+	position: relative;
+	margin-top: 20px;
+	width: 960px;
+	height: 100px;
+	background: #BBB;
+}
+
+#indicator {
+	position:absolute;
+	width: 10px;
+	height: 100%;
+	background: white;
+}
+
+.channel {
+	display: table;
+	position: absolute;
+	height: 100%;
+	background: #2A0;
+}
+
+.channel span {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+#help {
+	margin-top: 10px;
+}

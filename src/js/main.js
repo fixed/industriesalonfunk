@@ -2,7 +2,8 @@ require.config({
 	//baseUrl : '',
 	paths : {
 		'jquery' : 'lib/jquery/jquery-1.9.1.min',
-		'plugins' : 'lib/requirejs/plugins'
+		'plugins' : 'lib/requirejs/plugins',
+        'eventEmitter' : 'lib/eventEmitter/eventEmitter'
 	}
 });
 

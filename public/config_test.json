@@ -19,7 +19,7 @@
 					{ "name" : "cathode_decalibration", "min" : 0.1, "max" : 0.8 }
 				]
 			},
-			"distribution": [ 0.1, 0.3, 0.9] 
+			"distribution": [ 0.1, 0.3, 0.4, 0.9] 
 		}
 	],
 	"statics" : {

@@ -1,16 +1,16 @@
 define([
-	'jquery', 'underscore', 'util/class', 'eventEmitter'
-],function($, _, Class, EventEmitter){
+	'util/class', 'eventEmitter', 'channel/distribution/sine'
+],function(Class, EventEmitter, Distribution){
 
 	function Channel(options) {
-		Class.super(this);
+		EventEmitter.call(this);
 
 		this.name = options.name;
 
 		this.start = options.range[0];
 		this.end = options.range[1];
 
-		this.distribution = options.distribution;
+		this.distribution = new Distribution({values: options.distribution});
 
 		this.isActive = false;
 	};
@@ -30,7 +30,8 @@ define([
 	 * @param tune a value from 0 to 1 already in range
 	 */
 	Channel.prototype.onTune = function(tune) {
-		console.log(this.name + ' tune within range: ' + tune);
+		console.log(this.name + ' tune within range: ' + tune + 
+			'. Value after distribution calculation: ' + this.distribution.transform(tune));
 	};
 
 	return Channel;

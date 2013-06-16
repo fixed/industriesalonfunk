@@ -1,6 +1,6 @@
 define([
-	'jquery', 'underscore', 'util/class', 'channel/channel'
-],function($, _, Class, Channel){
+	'channel/channel'
+],function(Channel){
 
 	function Receiver(options) {
 		this.channels = [];

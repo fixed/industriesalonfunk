@@ -1,12 +1,12 @@
 define([
-	'jquery', 'underscore', 'util/class', 'eventEmitter', 'tuner/ui', 'js/lib/jquery/jquery.mousewheel.js' 
-],function($, _, Class, EventEmitter, TunerUi){
+	'jquery', 'util/class', 'eventEmitter', 'tuner/ui', 'js/lib/jquery/jquery.mousewheel.js' 
+],function($, Class, EventEmitter, TunerUi){
 
 	/**
 	 * Emits 'tune' with current absolute tune value between 0 and 1.
 	 */
 	function Tuner() {
-		Class.super(this);
+		EventEmitter.call(this);
 
 		this.currentValue = 0;
 		this.maxValue = 0x70;

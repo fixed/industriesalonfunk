@@ -9,8 +9,8 @@ define([
 		Class.super(this);
 
 		this.currentValue = 0;
-
 		this.maxValue = 0x70;
+
 	};
 	Class.inherits(Tuner, EventEmitter);
 

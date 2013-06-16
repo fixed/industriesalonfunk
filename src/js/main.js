@@ -9,19 +9,23 @@ require.config({
 	}
 });
 
-require(['plugins/domReady', 'tuner/tuner', 'channel/channel'],function(domReady, tuner, channel){
+require(['plugins/domReady', 'tuner/tuner', 'receiver/receiver', ],function(domReady, tuner, receiver){
 	domReady(function(){
 
-		$.getJSON('../config_test.json').success(function(data){
+		$.getJSON('../config_test.json').success(function(config){
 			
 			tuner.init({
-				channels : data.channels
+				channels : config.channels
 			});
 
+			receiver.init({
+				channels : config.channels
+			})
+
 			tuner.on('tune', function(value) {
-				console.log(value);
+				receiver.onTune(value);
 			});
-			
+
 
 		}).fail(function(error) {
 			alert('Could not load configuration')

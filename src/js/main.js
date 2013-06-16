@@ -9,7 +9,7 @@ require.config({
 	}
 });
 
-require(['plugins/domReady', 'tuner/index'],function(domReady, tuner){
+require(['plugins/domReady', 'tuner/tuner', 'channel/channel'],function(domReady, tuner, channel){
 	domReady(function(){
 
 		$.getJSON('../config_test.json').success(function(data){
@@ -20,7 +20,8 @@ require(['plugins/domReady', 'tuner/index'],function(domReady, tuner){
 
 			tuner.on('tune', function(value) {
 				console.log(value);
-			})
+			});
+			
 
 		}).fail(function(error) {
 			alert('Could not load configuration')

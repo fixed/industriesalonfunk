@@ -4,14 +4,17 @@ html {
 	margin: 0;
 	font: 10px/1.5 helvetica, verdana;
 	background: #999;
-	color: white;
+	color: #f4f4f4;
 	text-align: center;
+}
+
+h1 {
+	margin: .5em 0 .1em;
+	font-size: 300%;
 }
 
 #page {
 	width: 100%;
-	display: flex;
-	align-items: center;
 }
 
 #wrapper {

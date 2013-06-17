@@ -23,7 +23,7 @@ define([
     };
 
     Effect.prototype.tune = function(distribution){
-        var wet = this.min + distribution * (this.max - this.min);
+        var wet = this.max - distribution * (this.max - this.min);
         this.setWetLevel(wet);
     };
 

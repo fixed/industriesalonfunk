@@ -4,7 +4,7 @@
 			"name": "test01",
 			"range" : [0.3, 0.4],
 			"audio" : {
-				"file": "media/test01/test.mp4",
+				"file": "media/test01/24096__acclivity__henry5.mp3",
 				"filters" : [
 					{ "name" : "old", "min" : 0.2, "max" : 0.6 }
 				]

@@ -1,8 +1,7 @@
 define([
     'eventEmitter'
-    , 'audio/context'
     , 'util/class'
-],function(EventEmitter,Context,Class){
+],function(EventEmitter,Class){
 
     var Sample = function(url){
         EventEmitter.call(this);
@@ -23,7 +22,7 @@ define([
     };
 
     Sample.prototype._onLoad = function(){
-        Context.decodeAudioData(this._xhr.response,this._onDecode.bind(this),this._onDecodeError.bind(this));
+        audioContext.decodeAudioData(this._xhr.response,this._onDecode.bind(this),this._onDecodeError.bind(this));
     };
 
     Sample.prototype._onLoadError = function(err){
@@ -47,7 +46,7 @@ define([
     Sample.prototype.play = function(when,loop){
         if(this._player) return;
 
-        this._player = Context.createBufferSource();
+        this._player = audioContext.createBufferSource();
         this._player.buffer = this._buffer;
         this._player.loop = loop || false;
         if(this._destinations){

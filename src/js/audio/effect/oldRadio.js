@@ -1,20 +1,17 @@
 define([
-    'audio/Context'
-    , 'audio/effect/effect'
+    'audio/effect/effect'
     , 'util/class'
-], function(Context,Effect,Class){
+], function(Effect,Class){
 
     var OldRadio = function(options){
         Effect.call(this,options);
 
-        this.input = Context.createGain();
-        this.filterHigh = Context.createBiquadFilter();
-        this.filterLow = Context.createBiquadFilter();
-        this.filterPeak = Context.createBiquadFilter();
-        this.compressor = Context.createDynamicsCompressor();
-        this.dry = Context.createGain();
-        this.wet = Context.createGain();
-        this.output = Context.createGain();
+        this.dry = audioContext.createGain();
+        this.wet = audioContext.createGain();
+        this.filterHigh = audioContext.createBiquadFilter();
+        this.filterLow = audioContext.createBiquadFilter();
+        this.filterPeak = audioContext.createBiquadFilter();
+        this.compressor = audioContext.createDynamicsCompressor();
 
         this.input.connect(this.dry);
         this.input.connect(this.filterHigh);
@@ -42,10 +39,6 @@ define([
     };
 
     Class.inherits(OldRadio,Effect);
-
-    OldRadio.prototype.connect = function(dest){
-        this.output.connect(dest);
-    };
 
     OldRadio.prototype.setWetLevel = function(val){
         if(val > 1 || val < 0) throw new Error('WetLevel parameter out of range: 0 <= ' + val + ' <= 1' );

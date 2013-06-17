@@ -6,7 +6,7 @@ define([
 
     var Sample = function(url){
         EventEmitter.call(this);
-        //this._loadSample(url);
+        this._loadSample(url);
         this._destinations = [];
     };
 
@@ -37,7 +37,7 @@ define([
 
         this._buffer = buffer;
         delete this._xhr;
-        this.trigger('ready');
+        this.loop();
     };
 
     Sample.prototype._onDecodeError = function(err){
@@ -50,7 +50,11 @@ define([
         this._player = Context.createBufferSource();
         this._player.buffer = this._buffer;
         this._player.loop = loop || false;
-        if(this._dest) this.player.connect(_dest);
+        if(this._destinations){
+            this._destinations.forEach(function(dest){
+                this._player.connect(dest);
+            },this);
+        }
         when = when || 0;
         this._player.start(when);
     };
@@ -68,6 +72,11 @@ define([
     Sample.prototype.connect = function(dest){
         this._destinations.push(dest);
         if(this._player) this._player.connect(dest);
+    };
+
+    Sample.prototype.disconnect = function(){
+        this._destinations = [];
+        if(this._player) this._player.disconnect();
     };
 
     return Sample;

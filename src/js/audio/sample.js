@@ -1,14 +1,16 @@
 define([
     'eventEmitter'
-],function(EventEmiter){
+    , 'audio/context'
+    , 'util/class'
+],function(EventEmitter,Context,Class){
 
-    var Sample = function(options){
-        this._context = options.context;
-        this._dest = options.destination;
-        this._loadSample(options.url);
+    var Sample = function(url){
+        EventEmitter.call(this);
+        //this._loadSample(url);
+        this._destinations = [];
     };
 
-    Sample.prototype = Object.create(EventEmiter.prototype);
+    Class.inherits(Sample,EventEmitter);
 
     Sample.prototype._loadSample = function(url){
         this._xhr = new XMLHttpRequest();
@@ -21,7 +23,7 @@ define([
     };
 
     Sample.prototype._onLoad = function(){
-        this._context.decodeAudioData(this._xhr.response,this._onDecode.bind(this),this._onDecodeError.bind(this));
+        Context.decodeAudioData(this._xhr.response,this._onDecode.bind(this),this._onDecodeError.bind(this));
     };
 
     Sample.prototype._onLoadError = function(err){
@@ -34,7 +36,7 @@ define([
         }
 
         this._buffer = buffer;
-        //delete this._xhr;
+        delete this._xhr;
         this.trigger('ready');
     };
 
@@ -45,11 +47,10 @@ define([
     Sample.prototype.play = function(when,loop){
         if(this._player) return;
 
-        this._player = this._context.createBufferSource();
+        this._player = Context.createBufferSource();
         this._player.buffer = this._buffer;
         this._player.loop = loop || false;
-        this._player.connect(this._dest);
-
+        if(this._dest) this.player.connect(_dest);
         when = when || 0;
         this._player.start(when);
     };
@@ -62,6 +63,11 @@ define([
 
     Sample.prototype.loop = function(){
         this.play(0,true);
+    };
+
+    Sample.prototype.connect = function(dest){
+        this._destinations.push(dest);
+        if(this._player) this._player.connect(dest);
     };
 
     return Sample;

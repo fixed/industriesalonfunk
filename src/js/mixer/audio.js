@@ -19,5 +19,9 @@ define([
 		source.disconnect();
 	};
 
+	AudioMixer.prototype.onTune = function(value) {
+		// Produce statics ..
+	}
+
 	return AudioMixer;
 });

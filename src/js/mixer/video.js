@@ -5,5 +5,10 @@ define([
 	};
 
 
+	VideoMixer.prototype.onTune = function(value) {
+		// Produce statics ..
+	}
+
+
 	return VideoMixer;
 });

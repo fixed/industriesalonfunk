@@ -13,5 +13,10 @@ define([
 		this.video = new VideoMixer();
 	};
 
+	Mixer.prototype.onTune = function(value) {
+		this.audio.onTune(value);
+		this.video.onTune(value);
+	}
+
 	return new Mixer();
 });

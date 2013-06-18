@@ -1,8 +1,8 @@
 define([
 	'media/base'
 	, 'util/class'
-	, 'audio/sample'
-	, 'audio/effect/OldRadio'
+	, 'media/audio/sample'
+	, 'media/audio/effect/OldRadio'
 	, 'mixer/audio'
 ],function(Media,Class,Sample,OldRadio,audioMixer){
 

@@ -12,7 +12,7 @@ require.config({
 require([
 	'plugins/domReady',
 	'tuner/tuner',
-	'receiver/receiver',
+	'station/receiver',
 	'mixer/audio'
 ],function(domReady, tuner, receiver, audioMixer){
 	domReady(function(){
@@ -25,11 +25,11 @@ require([
 			audioMixer.init();
 
 			tuner.init({
-				channels : config.channels
+				stations : config.stations
 			});
 
 			receiver.init({
-				channels : config.channels
+				stations : config.stations
 			});
 
 			tuner.on('tune', function(value) {

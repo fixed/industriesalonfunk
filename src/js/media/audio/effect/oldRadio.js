@@ -1,5 +1,5 @@
 define([
-    'audio/effect/effect'
+    'media/audio/effect/effect'
     , 'util/class'
 ], function(Effect,Class){
 

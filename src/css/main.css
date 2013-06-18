@@ -43,14 +43,14 @@ h1 {
 	background: white;
 }
 
-.channel {
+.station {
 	display: table;
 	position: absolute;
 	height: 100%;
 	background: #2A0;
 }
 
-.channel span {
+.station span {
 	display: table-cell;
 	vertical-align: middle;
 }

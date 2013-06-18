@@ -1,5 +1,5 @@
 define([
-	'util/class', 'channel/distribution/base'
+	'util/class', 'station/distribution/base'
 ],function(Class, Distribution){
 
 	/**

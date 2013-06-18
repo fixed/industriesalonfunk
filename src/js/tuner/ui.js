@@ -6,16 +6,16 @@ define([
 		this.$element = $('#tuner');
 		this.$indicator = $('#indicator');
 
-		if(options.channels) this.drawChannels(options.channels);
+		if(options.stations) this.drawstations(options.stations);
 	};
 
-	TunerUi.prototype.drawChannels = function(channels) {
-		channels.forEach(function(channel) {
-			var $channel = $('<div class="channel">').prependTo(this.$element);
-			console.log($channel);
-			$channel.css('left', channel.range[0] * this.$element.width());
-			$channel.css('width', this.$element.width() * (channel.range[1] - channel.range[0]) );
-			$channel.html('<span>'+channel.name+'</span>');
+	TunerUi.prototype.drawstations = function(stations) {
+		stations.forEach(function(station) {
+			var $station = $('<div class="station">').prependTo(this.$element);
+			console.log($station);
+			$station.css('left', station.range[0] * this.$element.width());
+			$station.css('width', this.$element.width() * (station.range[1] - station.range[0]) );
+			$station.html('<span>'+station.name+'</span>');
 		}, this);
 	};
 

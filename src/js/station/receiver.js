@@ -1,14 +1,14 @@
 define([
-	'channel/channel'
-],function(Channel){
+	'station/station'
+],function(station){
 
 	function Receiver(options) {
-		this.channels = [];
+		this.stations = [];
 	};
 	
 	Receiver.prototype.init = function(options) {
-		options.channels.forEach(function(channelOptions) {
-			this.channels.push(new Channel(channelOptions));
+		options.stations.forEach(function(stationOptions) {
+			this.stations.push(new station(stationOptions));
 		}, this);
 	}
 
@@ -16,16 +16,16 @@ define([
 	 * @param value a tuning value from 0 to 1
 	 */
 	Receiver.prototype.onTune = function(value) {
-		this.channels.forEach(function(channel) {
-			if(!channel.isActive) {
-				if(value > channel.start && value < channel.end)
-					channel.load();
+		this.stations.forEach(function(station) {
+			if(!station.isActive) {
+				if(value > station.start && value < station.end)
+					station.load();
 			}
-			if(channel.isActive) {
-				if(value < channel.start || value > channel.end)
-					channel.unload();
+			if(station.isActive) {
+				if(value < station.start || value > station.end)
+					station.unload();
 				else {
-					channel.onTune((value - channel.start) / (channel.end - channel.start));
+					station.onTune((value - station.start) / (station.end - station.start));
 				}
 			}
 		}, this);

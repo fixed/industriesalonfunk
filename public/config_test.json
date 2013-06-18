@@ -2,11 +2,13 @@
 	"stations" : [
 		{
 			"name": "test01",
-			"range" : [0.3, 0.4],
+			"range" : [0.1, 0.4],
 			"audio" : {
 				"file": "media/test01/24096__acclivity__henry5.mp3",
-				"filters" : [
-					{ "name" : "old", "min" : 0.2, "max" : 0.6 }
+				"filters" : [					
+					{ "name" : "distortion", "min" : 0.0, "max" : 0.5 },
+					{ "name" : "old", "min" : 0.2, "max" : 0.6}
+
 				]
 			},
 			"video" : {

@@ -1,6 +1,6 @@
 define([
 	'station/station'
-],function(station){
+],function(Station){
 
 	function Receiver(options) {
 		this.stations = [];
@@ -8,7 +8,7 @@ define([
 	
 	Receiver.prototype.init = function(options) {
 		options.stations.forEach(function(stationOptions) {
-			this.stations.push(new station(stationOptions));
+			this.stations.push(new Station(stationOptions));
 		}, this);
 	}
 

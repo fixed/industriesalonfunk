@@ -6,10 +6,10 @@ define([
 		this.$element = $('#tuner');
 		this.$indicator = $('#indicator');
 
-		if(options.stations) this.drawstations(options.stations);
+		if(options.stations) this.drawStations(options.stations);
 	};
 
-	TunerUi.prototype.drawstations = function(stations) {
+	TunerUi.prototype.drawStations = function(stations) {
 		stations.forEach(function(station) {
 			var $station = $('<div class="station">').prependTo(this.$element);
 			console.log($station);

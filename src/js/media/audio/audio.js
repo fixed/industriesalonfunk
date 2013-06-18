@@ -2,12 +2,14 @@ define([
 	'media/base'
 	, 'util/class'
 	, 'media/audio/sample'
-	, 'media/audio/effect/OldRadio'
+	, 'media/audio/effect/oldRadio'
+	, 'media/audio/effect/distortion'
 	, 'mixer/mixer'
-],function(Media, Class, Sample, OldRadio, mixer){
+],function(Media, Class, Sample, OldRadio, Distortion, mixer){
 
 	var effects = {
 		old : OldRadio
+		, distortion : Distortion
 	};
 
 	function AudioMedia(options){

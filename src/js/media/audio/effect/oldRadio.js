@@ -1,5 +1,5 @@
 define([
-    'media/audio/effect/effect'
+    'media/audio/effect/base'
     , 'util/class'
     , 'mixer/mixer'
 ], function(Effect,Class,mixer){

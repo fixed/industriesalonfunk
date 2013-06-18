@@ -3,7 +3,7 @@ define([
 ],function(mixer){
 
     function Effect(options){
-        if(!options.min || !options.max) throw new Error('Missing parameter for AudioEffect. Min and Max are required.');
+        if(options.min == undefined || options.max == undefined) throw new Error('Missing parameter for AudioEffect. Min and Max are required.');
         this.min = options.min;
         this.max = options.max;
 

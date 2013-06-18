@@ -1,17 +1,18 @@
 define([
     'media/audio/effect/effect'
     , 'util/class'
-], function(Effect,Class){
+    , 'mixer/mixer'
+], function(Effect,Class,mixer){
 
     var OldRadio = function(options){
         Effect.call(this,options);
 
-        this.dry = audioContext.createGain();
-        this.wet = audioContext.createGain();
-        this.filterHigh = audioContext.createBiquadFilter();
-        this.filterLow = audioContext.createBiquadFilter();
-        this.filterPeak = audioContext.createBiquadFilter();
-        this.compressor = audioContext.createDynamicsCompressor();
+        this.dry = mixer.audio.context.createGain();
+        this.wet = mixer.audio.context.createGain();
+        this.filterHigh = mixer.audio.context.createBiquadFilter();
+        this.filterLow = mixer.audio.context.createBiquadFilter();
+        this.filterPeak = mixer.audio.context.createBiquadFilter();
+        this.compressor = mixer.audio.context.createDynamicsCompressor();
 
         this.input.connect(this.dry);
         this.input.connect(this.filterHigh);

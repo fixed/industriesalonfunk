@@ -3,8 +3,8 @@ define([
 	, 'util/class'
 	, 'media/audio/sample'
 	, 'media/audio/effect/OldRadio'
-	, 'mixer/audio'
-],function(Media,Class,Sample,OldRadio,audioMixer){
+	, 'mixer/mixer'
+],function(Media, Class, Sample, OldRadio, mixer){
 
 	var effects = {
 		old : OldRadio
@@ -41,11 +41,11 @@ define([
 	};
 
 	AudioMedia.prototype.load = function(){
-		audioMixer.attachSource(this._output);
+		mixer.audio.attachSource(this._output);
 	};
 
 	AudioMedia.prototype.unload = function(){
-		audioMixer.detachSource(this._output);
+		mixer.audio.detachSource(this._output);
 	};
 
 	AudioMedia.prototype.tune = function(distVal){

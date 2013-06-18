@@ -1,13 +1,14 @@
 define([
-],function(){
+    'mixer/mixer'
+],function(mixer){
 
     function Effect(options){
         if(!options.min || !options.max) throw new Error('Missing parameter for AudioEffect. Min and Max are required.');
         this.min = options.min;
         this.max = options.max;
 
-        this.input = audioContext.createGain();
-        this.output = audioContext.createGain();
+        this.input = mixer.audio.context.createGain();
+        this.output = mixer.audio.context.createGain();
     };
 
     Effect.prototype.connect = function(dest){

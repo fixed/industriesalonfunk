@@ -1,20 +1,14 @@
 define([
-	'mixer/base'
-	, 'util/class'
-],function(Mixer,Class){
+],function(){
 
 	function AudioMixer(){
-		Mixer.call(this);
-	};
+		this.context = new (window.AudioContext || window.webkitAudioContext)();
 
-	Class.inherits(AudioMixer,Mixer);
-
-	AudioMixer.prototype.init = function(){
-		this.compressor = audioContext.createDynamicsCompressor();
-		this.masterGain = audioContext.createGain();
+		this.compressor = this.context.createDynamicsCompressor();
+		this.masterGain = this.context.createGain();
 
 		this.masterGain.connect(this.compressor);
-		this.compressor.connect(audioContext.destination);
+		this.compressor.connect(this.context.destination);
 	};
 
 	AudioMixer.prototype.attachSource = function(source){
@@ -25,5 +19,5 @@ define([
 		source.disconnect();
 	};
 
-	return new AudioMixer();
+	return AudioMixer;
 });

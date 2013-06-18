@@ -13,16 +13,13 @@ require([
 	'plugins/domReady',
 	'tuner/tuner',
 	'station/receiver',
-	'mixer/audio'
-],function(domReady, tuner, receiver, audioMixer){
+	'mixer/mixer'
+],function(domReady, tuner, receiver, mixer){
 	domReady(function(){
 
 		$.getJSON('../config_test.json').success(function(config){
 
-			window.AudioContext = window.AudioContext || window.webkitAudioContext;
-			window.audioContext = new AudioContext();
-			
-			audioMixer.init();
+			mixer.init();
 
 			tuner.init({
 				stations : config.stations

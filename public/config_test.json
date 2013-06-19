@@ -12,7 +12,7 @@
 				]
 			},
 			"video" : {
-				"file": "media/test01/test.mp4",
+				"file": "media/test01/big_buck_bunny.mp4",
 				"filters" : [
 					{ "name" : "bw" },
 					{ "name" : "dust", "min" : 0.2, "max" : 0.6 },

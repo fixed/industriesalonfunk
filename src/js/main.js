@@ -3,6 +3,7 @@ require.config({
 	paths : {
 		'jquery' : 'lib/jquery/jquery-1.9.1.min',
 		'plugins' : 'lib/requirejs/plugins',
+		'seriously' : 'lib/seriouslyjs/seriously',
         'eventEmitter' : 'lib/eventEmitter/eventEmitter',
         'underscore' : 'lib/underscore/underscore',
         'util' : 'lib/util'

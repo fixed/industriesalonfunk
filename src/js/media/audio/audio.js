@@ -4,12 +4,14 @@ define([
 	, 'media/audio/sample'
 	, 'media/audio/effect/oldRadio'
 	, 'media/audio/effect/distortion'
+	, 'media/audio/effect/whiteNoise'
 	, 'mixer/mixer'
-],function(Media, Class, Sample, OldRadio, Distortion, mixer){
+],function(Media, Class, Sample, OldRadio, Distortion, WhiteNoise, mixer){
 
 	var effects = {
 		old : OldRadio
 		, distortion : Distortion
+		, whitenoise : WhiteNoise
 	};
 
 	function AudioMedia(options){

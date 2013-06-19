@@ -38,7 +38,7 @@ define([
 		if(effects[properties.name]){
 			effectClass = effects[properties.name];
 		} else{
-			throw new Error('Unknown audio effect: ' + name);
+			throw new Error('Unknown audio effect: ' + properties.name);
 		}
 
 		return new effectClass({min : properties.min, max : properties.max });

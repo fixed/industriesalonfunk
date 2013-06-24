@@ -29,7 +29,9 @@
 			"files" : ["media/_statics/noise.mp4"]
 		},
 		"audio" : {
-			"files" : ["media/_statics/noise.ogg"]
+			"files" : [
+				"98338__cgeffex__tuning-am-radio.wav"
+			]
 		}
 	}
 }

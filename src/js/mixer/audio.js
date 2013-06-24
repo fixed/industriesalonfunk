@@ -17,10 +17,19 @@ define([
 
 	AudioMixer.prototype.attachSource = function(source){
 		source.connect(this.stationGain);
+
+		var now = this.context.currentTime;
+		source.gain.cancelScheduledValues(now);
+		source.gain.setValueAtTime(0, now);
+		source.gain.linearRampToValueAtTime(1, now + 3);
 	};
 
 	AudioMixer.prototype.detachSource = function(source){
-		source.disconnect();
+
+		var now = this.context.currentTime;
+		source.gain.cancelScheduledValues(now);
+		source.gain.setValueAtTime(source.gain.value, now);
+		source.gain.linearRampToValueAtTime(0, now + 0.5);
 	};
 
 	AudioMixer.prototype.onTune = function(value) {

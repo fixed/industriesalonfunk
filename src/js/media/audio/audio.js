@@ -32,6 +32,10 @@ define([
 			
 		}, this);
 
+		var gain = mixer.audio.context.createGain();
+		gain.gain.value = 0;
+		this._output.connect(gain);
+		this._output = gain;
 	}
 
 	Class.inherits(AudioMedia,Media);
@@ -50,10 +54,12 @@ define([
 
 	AudioMedia.prototype.load = function() {
 		mixer.audio.attachSource(this._output);
+		this._sample.play();
 	};
 
 	AudioMedia.prototype.unload = function() {
 		mixer.audio.detachSource(this._output);
+		this._sample.pause(1);
 	};
 
 	AudioMedia.prototype.tune = function(distVal) {

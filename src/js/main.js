@@ -33,8 +33,9 @@ require([
 			});
 
 			tuner.on('tune', function(value) {
-				receiver.onTune(value);
-				mixer.onTune(value);
+				var summedTune = receiver.onTune(value);
+				console.log('Summed tune value after tuning stations: ' + summedTune);
+				mixer.onTune(summedTune);
 			});
 
 		}).fail(function(error) {

@@ -1,7 +1,7 @@
 define([
 ],function(){
 
-	function AudioMixer(){
+	function AudioMixer(statics) {
 		this.context = new (window.AudioContext || window.webkitAudioContext)();
 
 		this.compressor = this.context.createDynamicsCompressor();

@@ -20,7 +20,9 @@ require([
 
 		$.getJSON('../config_test.json').success(function(config){
 
-			mixer.init();
+			mixer.init({
+				statics : config.statics
+			});
 
 			tuner.init({
 				stations : config.stations
@@ -36,7 +38,7 @@ require([
 			});
 
 		}).fail(function(error) {
-			alert('Could not load configuration')
+			alert('Could not load configuration');
 		});
 
 	});

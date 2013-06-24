@@ -6,11 +6,11 @@ define([
 	function Mixer(){
 		this.audio = null;
 		this.video = null;
-	};
+	}
 
-	Mixer.prototype.init = function(){
-		this.audio = new AudioMixer();
-		this.video = new VideoMixer();
+	Mixer.prototype.init = function(options) {
+		this.audio = new AudioMixer(options.statics.audio);
+		this.video = new VideoMixer(options.statics.video);
 	};
 
 	Mixer.prototype.onTune = function(value) {

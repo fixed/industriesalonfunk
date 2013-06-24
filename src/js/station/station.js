@@ -55,6 +55,7 @@ define([
 
 		if(this.audioMedia) this.audioMedia.tune(distVal);
 		if(this.videoMedia) this.videoMedia.tune(distVal);
+		return distVal;
 	};
 
 	return Station;

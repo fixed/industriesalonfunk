@@ -1,13 +1,15 @@
 define([
-    'eventEmitter'
-    , 'util/class'
-    , 'mixer/mixer'
-],function(EventEmitter,Class,mixer){
+    'eventEmitter',
+    'util/class',
+    'mixer/mixer'
+],function(EventEmitter, Class, mixer) {
 
     var Sample = function(url){
         EventEmitter.call(this);
         this._loadSample(url);
         this._destinations = [];
+        this._playStart = 0;
+        this._offset = 0;
     };
 
     Class.inherits(Sample,EventEmitter);
@@ -37,7 +39,6 @@ define([
 
         this._buffer = buffer;
         delete this._xhr;
-        this.loop();
     };
 
     Sample.prototype._onDecodeError = function(err){
@@ -45,28 +46,44 @@ define([
     };
 
     Sample.prototype.play = function(when,loop){
-        if(this._player) return;
+        // are we playing already and do we already have a buffer?
+        if(this._player || !this._buffer) return;
 
+        // create a new player
         this._player = mixer.audio.context.createBufferSource();
         this._player.buffer = this._buffer;
-        this._player.loop = loop || false;
-        if(this._destinations){
-            this._destinations.forEach(function(dest){
+        this._player.loop = true;
+
+        // connect destinations
+        if (this._destinations.length > 0) {
+            this._destinations.forEach(function(dest) {
                 this._player.connect(dest);
-            },this);
+            }, this);
         }
-        when = when || 0;
-        this._player.start(when);
+
+        // Get current AudioContext time and check when param
+        var now = mixer.audio.context.currentTime;
+        when = when || 0; 
+
+        // Save starting time for use in pause
+        this._playStart = now + when;
+        this._player.start(when,this._offset);
     };
 
-    Sample.prototype.stop = function(when){
+    Sample.prototype.pause = function(when) {
+        // are we playing?
         if(!this._player) return;
+        
+        // Get current AudioContext time and check when param
         when = when || 0;
-        this._player.stop(when);
-    };
+        var now = mixer.audio.context.currentTime;
 
-    Sample.prototype.loop = function(){
-        this.play(0,true);
+        // Store offset for later use in play
+        this._offset = ((now - this._playStart) % this._buffer.duration) + this._offset;
+
+        // stop the player and delete the reference
+        this._player.stop(now + when);
+        delete this._player;
     };
 
     Sample.prototype.connect = function(dest){

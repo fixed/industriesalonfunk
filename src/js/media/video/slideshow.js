@@ -1,4 +1,5 @@
 define([
+	'jquery',
 	'media/base',
 	'mixer/mixer',
 	'util/class',
@@ -9,7 +10,7 @@ define([
 	'media/video/effect/sepia',
 	'media/video/effect/bleachBypass',
 	'lib/seriouslyjs/effects/seriously.blend'
-], function(Media, mixer, Class, BlackWhite, TvGlitch, Noise, Scanlines, Sepia, BleachBypass) {
+], function($, Media, mixer, Class, BlackWhite, TvGlitch, Noise, Scanlines, Sepia, BleachBypass) {
 
 	var effects = {
 		bw : BlackWhite,

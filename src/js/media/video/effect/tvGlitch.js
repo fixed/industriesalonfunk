@@ -10,6 +10,7 @@ define([
 		Effect.call(this,options);
 
 		this._effect = mixer.video.seriously.effect('tvglitch');
+		this._effect.frameShape = 0;
 	}
 	Class.inherits(TvGlitch,Effect);
 

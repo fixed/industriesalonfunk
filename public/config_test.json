@@ -16,9 +16,7 @@
 				"file": "media/test01/big_buck_bunny.mp4",
 				"filters" : [
 					{ "name" : "bw" },
-					{ "name" : "dust", "min" : 0.2, "max" : 0.6 },
-					{ "name" : "noise", "min" : 0.1, "max" : 0.3 },
-					{ "name" : "cathode_decalibration", "min" : 0.1, "max" : 0.8 }
+					{ "name" : "tvGlitch", "min" : 0.1, "max" : 0.5 }
 				]
 			},
 			"distribution": [ 0.1, 0.3, 0.4, 0.9] 

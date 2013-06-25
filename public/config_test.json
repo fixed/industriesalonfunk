@@ -32,6 +32,8 @@
 			"files" : [
 				"98338__cgeffex__tuning-am-radio.wav"
 			]
+		"audio" : {
+			"files" : ["media/_statics/98338__cgeffex__tuning-am-radio.wav"]
 		}
 	}
 }

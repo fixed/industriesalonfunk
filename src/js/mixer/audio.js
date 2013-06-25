@@ -17,7 +17,7 @@ define([
 		// load statics
 		statics.files.forEach(function(url) {
 			var xhr = new XMLHttpRequest();
-			xhr.open('GET', '/media/_statics/' + url, true);
+			xhr.open('GET', url, true);
 			xhr.responseType = 'arraybuffer';
 			xhr.mixer = this;
 			xhr.onload = function() {

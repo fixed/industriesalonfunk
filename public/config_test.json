@@ -24,12 +24,12 @@
 	],
 	"statics" : {
 		"video" : {
-			"files" : ["media/_statics/noise.mp4"]
+			"files" : [
+				"media/_statics/tv_noise.mp4"
+			]
 		},
 		"audio" : {
-			"files" : [
-				"98338__cgeffex__tuning-am-radio.wav"
-			]
+			"files" : ["media/_statics/98338__cgeffex__tuning-am-radio.wav"]
 		}
 	}
 }

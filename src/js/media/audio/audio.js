@@ -59,13 +59,15 @@ define([
 
 	AudioMedia.prototype.unload = function() {
 		mixer.audio.detachSource(this._output);
-		this._sample.pause(1);
+		this._sample.pause();
 	};
 
 	AudioMedia.prototype.tune = function(distVal) {
 		this._effects.forEach(function(effect) {
 			effect.tune(distVal);
 		});
+
+		this._output.gain.value = distVal;
 	};
 
 	return AudioMedia;

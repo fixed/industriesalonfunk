@@ -1,10 +1,9 @@
 define([
-	'jquery',
     'media/video/effect/base',
     'util/class',
     'mixer/mixer',
 	'lib/seriouslyjs/effects/seriously.tvglitch'
-],function($, Effect, Class, mixer) {
+],function(Effect, Class, mixer) {
 
 	function TvGlitch(options){
 		Effect.call(this,options);
@@ -12,6 +11,7 @@ define([
 		this._effect = mixer.video.seriously.effect('tvglitch');
 		this._effect.frameShape = 0;
 	}
+
 	Class.inherits(TvGlitch,Effect);
 
 	TvGlitch.prototype.setWetLevel = function(val){

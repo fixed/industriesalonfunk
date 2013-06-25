@@ -1,21 +1,28 @@
 define([
-	'jquery',
 	'media/base',
 	'mixer/mixer',
 	'util/class',
 	'media/video/effect/blackWhite',
 	'media/video/effect/tvGlitch',
+	'media/video/effect/noise',
+	'media/video/effect/scanlines',
+	'media/video/effect/sepia',
+	'media/video/effect/bleachBypass',
 	'lib/seriouslyjs/effects/seriously.blend'
-], function($, Media, mixer, Class, BlackWhite, TvGlitch) {
+], function(Media, mixer, Class, BlackWhite, TvGlitch, Noise, Scanlines, Sepia, BleachBypass) {
 
 	var effects = {
 		bw : BlackWhite,
-		tvGlitch : TvGlitch
+		tvGlitch : TvGlitch,
+		noise : Noise,
+		scanlines : Scanlines,
+		sepia : Sepia,
+		bleachBypass : BleachBypass
 	};
 
 	function SlideShow(options) {
 
-		if (options.files.length < 2) throw new Error('Slideshow needs at least two images.');
+		if (!options.files || options.files.length < 2) throw new Error('Slideshow needs at least two images.');
 		Media.call(this);
 
 		this._images = [];
@@ -42,7 +49,7 @@ define([
 			if (index > 0) {
 				this._output.connect(effect);
 			} else {
-				effect._effect.source = this._blender;
+				effect.setInput(this._blender);
 			}
 
 			this._effects.push(effect);
@@ -66,7 +73,7 @@ define([
 
 	SlideShow.prototype.load = function() {
 		if (this._effects.length) {
-			mixer.video.attachSource(this._output._effect);
+			mixer.video.attachSource(this._output.getOutput());
 		} else {
 			mixer.video.attachSource(this._output);
 		}
@@ -78,7 +85,7 @@ define([
 
 	SlideShow.prototype.unload = function() {
 		if (this._effects.length) {
-			mixer.video.detachSource(this._output._effect);
+			mixer.video.detachSource(this._output.getOutput());
 		} else {
 			mixer.video.detachSource(this._output);
 		}

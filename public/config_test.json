@@ -29,8 +29,11 @@
 				"filters" : [					
 				]
 			},
-			"video" : {
-				"file": "media/test01/big_buck_bunny.mp4",
+			"slides" : {
+				"files": [
+					"media/test02/P6040037.jpg",
+					"media/test02/P6040087.jpg"
+				],
 				"filters" : [
 					{ "name" : "noise", "min" : 0.1, "max" : 0.4 },
 					{ "name" : "scanlines", "min" : 0.1, "max" : 0.6 },

@@ -1,8 +1,7 @@
 define([
 	'jquery',
 	'seriously',
-	'lib/seriouslyjs/effects/seriously.blend',
-	'lib/seriouslyjs/effects/seriously.fader'
+	'lib/seriouslyjs/effects/seriously.blend'
 ],function($, Seriously){
 
 	function VideoMixer(statics) {

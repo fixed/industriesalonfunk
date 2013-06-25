@@ -7,14 +7,18 @@ define([
         this.max = options.max;
         
         this._effect = null;
+    }
+
+    Effect.prototype.connect = function(dest) {
+        dest.setInput(this._effect);
     };
 
-    Effect.prototype.connect = function(dest){
-        dest._effect.source = this._effect;
+    Effect.prototype.getOutput = function() {
+        return this._effect;
     };
 
-    Effect.prototype.disconnect = function(){
-        //this.output.disconnect();
+    Effect.prototype.setInput = function(source) {
+        this._effect.source = source;
     };
 
     Effect.prototype.setWetLevel = function(val){

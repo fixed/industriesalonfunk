@@ -1,10 +1,9 @@
 define([
-	'jquery',
     'media/video/effect/base',
     'util/class',
     'mixer/mixer',
 	'lib/seriouslyjs/effects/seriously.hue-saturation'
-],function($, Effect, Class, mixer) {
+],function(Effect, Class, mixer) {
 
 	function BlackWhite(options){
 		Effect.call(this,options);

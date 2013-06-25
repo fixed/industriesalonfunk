@@ -3,16 +3,19 @@ define([
 	'eventEmitter', 
 	'station/distribution/sine', 
 	'media/audio/audio',
-	'media/video/video'
+	'media/video/video',
+	'media/video/slideshow'
 ],function(
 	Class, 
 	EventEmitter, 
 	Distribution, 
 	AudioMedia,
-	VideoMedia
+	VideoMedia,
+	SlideShowMedia
 ){
 
 	function Station(options) {
+		if (options.video && options.slides) throw new Error('Station with slideshow and video is not allowed');
 		EventEmitter.call(this);
 
 		this.name = options.name;
@@ -24,9 +27,11 @@ define([
 
 		if(options.audio) this.audioMedia = new AudioMedia(options.audio);
 		if(options.video) this.videoMedia = new VideoMedia(options.video);
+		if(options.slides) this.slideshowMedia = new SlideShowMedia(options.slides);
 
 		this.isActive = false;
-	};
+	}
+
 	Class.inherits(Station, EventEmitter);
 	
 	Station.prototype.load = function() {
@@ -35,6 +40,7 @@ define([
 
 		if(this.audioMedia) this.audioMedia.load();
 		if(this.videoMedia) this.videoMedia.load();
+		if(this.slideshowMedia) this.slideshowMedia.load();
 	};
 
 	Station.prototype.unload = function() {
@@ -43,6 +49,7 @@ define([
 
 		if(this.audioMedia) this.audioMedia.unload();
 		if(this.videoMedia) this.videoMedia.unload();
+		if(this.slideshowMedia) this.slideshowMedia.unload();
 	};
 
 	/**
@@ -55,6 +62,7 @@ define([
 
 		if(this.audioMedia) this.audioMedia.tune(distVal);
 		if(this.videoMedia) this.videoMedia.tune(distVal);
+		if(this.slideshowMedia) this.slideshowMedia.tune(distVal);
 		return distVal;
 	};
 

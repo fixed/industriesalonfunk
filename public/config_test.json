@@ -16,7 +16,26 @@
 				"file": "media/test01/big_buck_bunny.mp4",
 				"filters" : [
 					{ "name" : "bw" },
-					{ "name" : "tvGlitch", "min" : 0.1, "max" : 0.5 }
+					{ "name" : "tvGlitch", "min" : 0.0, "max" : 1.0 }
+				]
+			},
+			"distribution": [ 0.1, 0.3, 0.4, 0.9] 
+		},
+		{
+			"name": "slideshow",
+			"range" : [0.5, 0.8],
+			"audio" : {
+				"file": "media/test01/24096__acclivity__henry5.mp3",
+				"filters" : [					
+				]
+			},
+			"video" : {
+				"file": "media/test01/big_buck_bunny.mp4",
+				"filters" : [
+					{ "name" : "noise", "min" : 0.1, "max" : 0.4 },
+					{ "name" : "scanlines", "min" : 0.1, "max" : 0.6 },
+					{ "name" : "sepia" },
+					{ "name" : "bleachBypass", "min" : 0.2, "max" : 0.9 }
 				]
 			},
 			"distribution": [ 0.1, 0.3, 0.4, 0.9] 

@@ -4,12 +4,20 @@ define([
 	'util/class',
 	'media/video/effect/blackWhite',
 	'media/video/effect/tvGlitch',
+	'media/video/effect/noise',
+	'media/video/effect/scanlines',
+	'media/video/effect/sepia',
+	'media/video/effect/bleachBypass',
 	'mixer/mixer',
-],function($, Media, Class, BlackWhite, TvGlitch, mixer){
+],function($, Media, Class, BlackWhite, TvGlitch, Noise, Scanlines, Sepia, BleachBypass, mixer){
 
 	var effects = {
 		bw : BlackWhite,
-		tvGlitch : TvGlitch
+		tvGlitch : TvGlitch,
+		noise : Noise,
+		scanlines : Scanlines,
+		sepia : Sepia,
+		bleachBypass : BleachBypass
 	};
 
 	function VideoMedia(options){

@@ -3,6 +3,7 @@ define([
 	'media/base',
 	'mixer/mixer',
 	'util/class',
+	'util/requestAnimFrame',
 	'media/video/effect/blackWhite',
 	'media/video/effect/tvGlitch',
 	'media/video/effect/noise',
@@ -10,7 +11,7 @@ define([
 	'media/video/effect/sepia',
 	'media/video/effect/bleachBypass',
 	'lib/seriouslyjs/effects/seriously.blend'
-], function($, Media, mixer, Class, BlackWhite, TvGlitch, Noise, Scanlines, Sepia, BleachBypass) {
+], function($, Media, mixer, Class, requestAnimFrame, BlackWhite, TvGlitch, Noise, Scanlines, Sepia, BleachBypass) {
 
 	var effects = {
 		bw : BlackWhite,
@@ -22,13 +23,13 @@ define([
 	};
 
 	function SlideShow(options) {
-
-		if (!options.files || options.files.length < 2) throw new Error('Slideshow needs at least two images.');
 		Media.call(this);
+		if (!options.files || options.files.length < 2) throw new Error('Slideshow needs at least two images.');
 
 		this._images = [];
 		this._currentImageIndex = 0; // currently shown image index
 		this._nextImageBottom = true; // attach next image to bottom or top?
+		this._loaded = false; // flag for renderLoop to continue or not
 
 		options.files.forEach(function(imageUrl) {
 			var img = new Image();
@@ -73,11 +74,16 @@ define([
 	};
 
 	SlideShow.prototype.load = function() {
+
 		if (this._effects.length) {
 			mixer.video.attachSource(this._output.getOutput());
 		} else {
 			mixer.video.attachSource(this._output);
 		}
+
+		// start renderloop for updating time based effects
+		this._loaded = true;
+		requestAnimFrame(this._onAnimFrame.bind(this));
 
 		this._blendInterval = setInterval(function() {
 			this._blend();
@@ -91,6 +97,7 @@ define([
 			mixer.video.detachSource(this._output);
 		}
 
+		this._loaded = false;
 		clearInterval(this._blendInterval);
 	};
 
@@ -120,6 +127,24 @@ define([
 			duration: 1000,
 			step: function(val) { this._blender.opacity = val; }.bind(this)
 		});
+	};
+
+	SlideShow.prototype._onAnimFrame =  function() {
+		
+		// update time based effects with the help of the audio context timer
+		var now = mixer.audio.context.currentTime * 1000;
+		this._effects.forEach(function(effect) {
+			var effectNode = effect.getOutput();
+
+			if ('time' in effectNode) {
+				effectNode.time = now;
+			} else if ('timer' in effectNode) {
+				effectNode.timer = now;
+			}
+		});
+		if(this._loaded) {
+			requestAnimFrame(this._onAnimFrame.bind(this));
+		}
 	};
 
 	SlideShow.prototype.tune = function(distVal){

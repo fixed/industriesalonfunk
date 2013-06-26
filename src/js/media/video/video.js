@@ -2,6 +2,7 @@ define([
 	'jquery',
 	'media/base',
 	'util/class',
+	'util/requestAnimFrame',
 	'media/video/effect/blackWhite',
 	'media/video/effect/tvGlitch',
 	'media/video/effect/noise',
@@ -9,7 +10,7 @@ define([
 	'media/video/effect/sepia',
 	'media/video/effect/bleachBypass',
 	'mixer/mixer'
-], function($, Media, Class, BlackWhite, TvGlitch, Noise, Scanlines, Sepia, BleachBypass, mixer) {
+], function($, Media, Class, requestAnimFrame, BlackWhite, TvGlitch, Noise, Scanlines, Sepia, BleachBypass, mixer) {
 
 	var effects = {
 		bw : BlackWhite,
@@ -28,6 +29,7 @@ define([
 
 		this._effects = [];
 		this._output = mixer.video.seriously.source(this._$video[0]);
+		this._loaded = false;
 
 		options.filters.forEach(function(properties, index){
 			var effect = this._createEffect(properties);
@@ -65,6 +67,10 @@ define([
 			mixer.video.attachSource(this._output);
 		}
 		this._$video[0].play();
+
+		// start renderloop for updating time based effects
+		this._loaded = true;
+		requestAnimFrame(this._onAnimFrame.bind(this));
 	};
 
 	VideoMedia.prototype.unload = function(){
@@ -74,6 +80,25 @@ define([
 			mixer.video.detachSource(this._output);
 		}
 		this._$video[0].pause();
+		this._loaded = false;
+	};
+
+	VideoMedia.prototype._onAnimFrame =  function() {
+		
+		// update time based effects with the help of the audio context timer
+		var now = mixer.audio.context.currentTime * 1000;
+		this._effects.forEach(function(effect) {
+			var effectNode = effect.getOutput();
+
+			if ('time' in effectNode) {
+				effectNode.time = now;
+			} else if ('timer' in effectNode) {
+				effectNode.timer = now;
+			}
+		});
+		if(this._loaded) {
+			requestAnimFrame(this._onAnimFrame.bind(this));
+		}
 	};
 
 	VideoMedia.prototype.tune = function(distVal){

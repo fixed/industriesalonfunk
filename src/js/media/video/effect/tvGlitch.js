@@ -18,8 +18,8 @@ define([
         this._effect.lineSync = val;
         this._effect.distortion = val;
         this._effect.scanlines = val;
-		//this._effect.verticalSync = val;
-		//this._effect.bars = val;
+		this._effect.verticalSync = val;
+		this._effect.bars = val;
     };
 
 	return TvGlitch;

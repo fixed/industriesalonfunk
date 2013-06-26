@@ -22,7 +22,6 @@ define([
 		this._sample = new Sample(options.file);
 		this._effects = [];
 		this._output = this._sample; // main output
-
 		options.filters.forEach(function(properties) {
 
 			var effect = this._createEffect(properties);

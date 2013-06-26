@@ -2,16 +2,19 @@
 	"stations" : [
 		{
 			"name": "test01",
-			"range" : [0.1, 0.4],
-			"audio" : {
-				"file": "media/test01/24096__acclivity__henry5.mp3",
-				"filters" : [					
-					{ "name" : "distortion", "min" : 0.0, "max" : 0.5 },
-					{ "name" : "whitenoise", "min" : 0.1, "max" : 0.5},			
-					{ "name" : "old", "min" : 0.2, "max" : 0.6},
-					{ "name" : "interference", "min" : 0, "max" : 0.5}
+			"range" : [0.1, 0.2],
+			"video" : {
+				"file": "media/test01/big_buck_bunny.mp4",
+				"filters" : [
+					{ "name" : "bw" },
+					{ "name" : "tvGlitch", "min" : 0.0, "max" : 0.5 }
 				]
 			},
+			"distribution": [ 0.1, 0.3, 0.4, 0.9] 
+		},
+		{
+			"name": "test01",
+			"range" : [0.3, 0.4],
 			"video" : {
 				"file": "media/test01/big_buck_bunny.mp4",
 				"filters" : [
@@ -23,12 +26,24 @@
 		},
 		{
 			"name": "slideshow",
-			"range" : [0.5, 0.8],
-			"audio" : {
-				"file": "media/test01/24096__acclivity__henry5.mp3",
-				"filters" : [					
+			"range" : [0.5, 0.6],
+			"slides" : {
+				"files": [
+					"media/test02/P6040037.jpg",
+					"media/test02/P6040087.jpg"
+				],
+				"filters" : [
+					{ "name" : "noise", "min" : 0.1, "max" : 0.4 },
+					{ "name" : "scanlines", "min" : 0.1, "max" : 0.6 },
+					{ "name" : "sepia" },
+					{ "name" : "bleachBypass", "min" : 0.2, "max" : 0.9 }
 				]
 			},
+			"distribution": [ 0.1, 0.3, 0.4, 0.9] 
+		},
+		{
+			"name": "slideshow",
+			"range" : [0.7, 0.8],
 			"slides" : {
 				"files": [
 					"media/test02/P6040037.jpg",

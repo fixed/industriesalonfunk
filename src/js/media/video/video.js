@@ -26,25 +26,12 @@ define([
 
 		this._$video = $('<video loop src="'+options.file+'">');
 		this._$video[0].volume = 0;
+		this._videoSource = mixer.video.seriously.source(this._$video[0]);
 
 		this._effects = [];
-		this._output = mixer.video.seriously.source(this._$video[0]);
+		this._filters = options.filters;
+		this._output = this._videoSource;
 		this._loaded = false;
-
-		options.filters.forEach(function(properties, index){
-			var effect = this._createEffect(properties);
-
-			if (index > 0) {
-				this._output.connect(effect);
-			} else {
-				effect.setInput(this._output);
-			}
-
-			this._effects.push(effect);
-			this._output = effect;
-
-		}, this);
-
 	}
 
 	Class.inherits(VideoMedia,Media);
@@ -61,6 +48,21 @@ define([
 	};
 
 	VideoMedia.prototype.load = function(){
+		this._filters.forEach(function(properties, index){
+			var effect = this._createEffect(properties);
+
+			if (index > 0) {
+				this._output.connect(effect);
+			} else {
+				effect.setInput(this._output);
+			}
+
+			this._effects.push(effect);
+			this._output = effect;
+
+		}, this);
+
+
 		if (this._effects.length) {
 			mixer.video.attachSource(this._output.getOutput());
 		} else {
@@ -74,13 +76,17 @@ define([
 	};
 
 	VideoMedia.prototype.unload = function(){
-		if (this._effects.length) {
-			mixer.video.detachSource(this._output.getOutput());
-		} else {
-			mixer.video.detachSource(this._output);
-		}
-		this._$video[0].pause();
 		this._loaded = false;
+		mixer.video.detachSource();
+		
+		// destroy effect nodes
+		this._effects.forEach(function(effect) {
+			effect.getOutput().destroy();
+		});
+		this._effects = [];
+
+		this._output = this._videoSource;
+		this._$video[0].pause();
 	};
 
 	VideoMedia.prototype._onAnimFrame =  function() {

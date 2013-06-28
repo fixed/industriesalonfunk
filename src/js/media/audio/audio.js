@@ -22,6 +22,7 @@ define([
 		this._sample = new Sample(options.file);
 		this._effects = [];
 		this._output = this._sample; // main output
+		this._volume = options.volume || 1;
 
 		options.filters.forEach(function(properties) {
 
@@ -33,7 +34,7 @@ define([
 		}, this);
 
 		var gain = mixer.audio.context.createGain();
-		gain.gain.value = 0;
+		gain.gain.value = this._volume;
 		this._output.connect(gain);
 		this._output = gain;
 	}
@@ -67,7 +68,7 @@ define([
 			effect.tune(distVal);
 		});
 
-		this._output.gain.value = distVal;
+		this._output.gain.value = distVal * this._volume;
 	};
 
 	return AudioMedia;

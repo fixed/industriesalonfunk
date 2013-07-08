@@ -25,7 +25,8 @@ require([
 			});
 
 			tuner.init({
-				stations : config.stations
+				stations : config.stations,
+				fullScreenSel : '#page'
 			});
 
 			receiver.init({
@@ -41,6 +42,5 @@ require([
 		}).fail(function(error) {
 			alert('Could not load configuration');
 		});
-
 	});
 });

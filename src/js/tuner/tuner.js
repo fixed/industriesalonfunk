@@ -11,16 +11,18 @@ define([
 		this.currentValue = 0;
 		this.maxValue = 0x70;
 
-	};
+	}
 	Class.inherits(Tuner, EventEmitter);
 
 
 	Tuner.prototype.init = function(options) {
-		var self = this;
-		$(window).mousewheel(function(event, delta) {
-			self.onMouseWheel(delta);
-			return false;
-		});
+		if (!options.fullScreenSel) throw new Error('Missing selector for fullscreen functionality!');
+		
+		this._fullScreenElement = $(options.fullScreenSel)[0];
+		
+		$(window).mousewheel(this.onMouseWheel.bind(this));
+		$(window).on('keyup', this.onKeyUp.bind(this));
+		$(document).on('webkitfullscreenchange mozfullscreenchange fullscreenchange', this.toggleCursorVisibility.bind(this));
 
 		this.ui = new TunerUi(options);
 	};
@@ -29,11 +31,33 @@ define([
 		return Math.max(min, Math.min(max, val));
 	};
 
-	Tuner.prototype.onMouseWheel = function(delta) {
+	Tuner.prototype.onMouseWheel = function(event, delta) {
 		this.currentValue = this.clamp(this.currentValue + delta, 0, this.maxValue);
 		var normalizedValue = this.currentValue / this.maxValue;
 		this.emit('tune', normalizedValue);
 		if(this.ui) this.ui.moveIndicator(normalizedValue);
+		return false;
+	};
+
+	Tuner.prototype.onKeyUp = function(event) {
+		if (event.ctrlKey && event.keyCode === 70) {
+			if (!document.fullScreen) {
+
+				if (this._fullScreenElement.requestFullScreen) {
+					this._fullScreenElement.requestFullScreen();
+
+				} else if (this._fullScreenElement.webkitRequestFullScreen) {
+					this._fullScreenElement.webkitRequestFullScreen();
+
+				} else if (this._fullScreenElement.mozRequestFullScreen) {
+					this._fullScreenElement.mozRequestFullScreen();
+				}
+			}
+		}
+	};
+
+	Tuner.prototype.toggleCursorVisibility = function() {
+		$('body').toggleClass('hide-cursor');
 	};
 	
 

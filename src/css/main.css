@@ -13,6 +13,10 @@ h1 {
 	font-size: 300%;
 }
 
+.hide-cursor {
+	cursor: none;
+}
+
 #page {
 	width: 100%;
 }

@@ -48,7 +48,11 @@
 	"statics" : {
 		"video" : {
 			"files" : [
-				"media/_statics/tv_noise.mp4"
+				"media/_statics/tv_noise.mp4",
+				"media/_statics/looping_static_1.mp4",
+				"media/_statics/looping_static_2.mp4",
+				"media/_statics/static_1.mp4",
+				"media/_statics/static_2.mp4"
 			]
 		},
 		"audio" : {

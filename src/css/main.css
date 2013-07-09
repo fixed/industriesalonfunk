@@ -23,13 +23,13 @@ h1 {
 }
 
 #wrapper {
-	width: 1200px;
+	width: 1280px;
 	margin: 20px auto;
 }
 
 #video {
-	width: 1200px;
-	height: 540px;
+	width: 1280px;
+	height: 576px;
 	background: black;
 }
 

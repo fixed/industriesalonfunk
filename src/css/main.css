@@ -29,27 +29,43 @@ h1 {
 
 #video {
 	width: 1280px;
-	height: 576px;
+	height: 800px;
 	background: black;
 }
 
 #tuner {
 	position: relative;
-	margin-top: 20px;
-	width: 1200px;
-	height: 20px;
-	background: #1D1D1D;
+	margin-top: 40px;
+	margin-left: 295px;
+	width: 660px;
+	height: 160px;
+	background: #777;
+	/*background: #1D1D1D;*/
+
+	background-image: -webkit-linear-gradient(top, #30231C 0%, #000 100%);
 }
 
 #indicator {
 	position:absolute;
-	width: 10px;
+	width: 5px;
 	height: 100%;
+	/*background: #94000C; */
 	background: #94000C;
+	box-shadow: 0 0 30px 1px #A80;
+}
+
+#focal{
+	display:block;
+	width: 1px;
+	height: 100%;
+	margin-left: 2px;
+	background: #f33;
 }
 
 .station {
-	display: table;
+	/*
+	display: table;*/
+	display:none;
 	position: absolute;
 	height: 100%;
 	background: #272727;

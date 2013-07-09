@@ -9,7 +9,7 @@ define([
 		EventEmitter.call(this);
 
 		this.currentValue = 0;
-		this.maxValue = 0x70;
+		this.maxValue = 0x190;
 
 	}
 	Class.inherits(Tuner, EventEmitter);
@@ -32,7 +32,7 @@ define([
 	};
 
 	Tuner.prototype.onMouseWheel = function(event, delta) {
-		this.currentValue = this.clamp(this.currentValue + delta, 0, this.maxValue);
+		this.currentValue = this.clamp(this.currentValue - delta, 0, this.maxValue);
 		var normalizedValue = this.currentValue / this.maxValue;
 		this.emit('tune', normalizedValue);
 		if(this.ui) this.ui.moveIndicator(normalizedValue);

@@ -23,12 +23,12 @@ h1 {
 }
 
 #wrapper {
-	width: 960px;
+	width: 1200px;
 	margin: 20px auto;
 }
 
 #video {
-	width: 960px;
+	width: 1200px;
 	height: 540px;
 	background: black;
 }
@@ -36,7 +36,7 @@ h1 {
 #tuner {
 	position: relative;
 	margin-top: 20px;
-	width: 960px;
+	width: 1200px;
 	height: 20px;
 	background: #1D1D1D;
 }

@@ -40,7 +40,7 @@ define([
 	};
 
 	Tuner.prototype.onKeyUp = function(event) {
-		if (event.ctrlKey && event.keyCode === 70) {
+		if (event.keyCode === 70) {
 			if (!document.fullScreen) {
 
 				if (this._fullScreenElement.requestFullScreen) {

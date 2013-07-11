@@ -15,13 +15,13 @@ Putting together an interactive media-device which lets users switch through con
 
   5. ~~Build the audio component~~
 
-  6. Build the video component
+  6. ~~Build the video component~~
 
-  7. Get content!
+  7. ~~Get content!~~
 
-  8. Get an old radio to disassemble
+  8. ~~Get an old radio to disassemble~~
 
-  9. Take apart a laptop and put the damn thing into the radio-housing!
+  9. ~~Take apart a laptop and put the damn thing into the radio-housing!~~
 
   10. Win.
   

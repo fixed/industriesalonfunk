@@ -17,7 +17,7 @@ define([
 		if (!Interference.audioBuffer) {
 
 			var xhr = new XMLHttpRequest();
-			xhr.open('GET', '/media/_statics/46728__freqman__radio-interfer.wav', true);
+			xhr.open('GET', '/media/_statics/46728__freqman__radio-interfer.mp3', true);
 			xhr.responseType = 'arraybuffer';
 
 			var that = this;

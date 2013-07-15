@@ -1,5 +1,5 @@
 define([
-],function(){
+], function(){
 
 	function AudioMixer(statics) {
 		this.context = new (window.AudioContext || window.webkitAudioContext)();
@@ -15,50 +15,30 @@ define([
 		this.compressor.connect(this.context.destination);
 
 		// load statics
+		var sample, sampleSource, osc, oscGain, playerGain;
+		
 		statics.files.forEach(function(url) {
-			var xhr = new XMLHttpRequest();
-			xhr.open('GET', url, true);
-			xhr.responseType = 'arraybuffer';
-			xhr.mixer = this;
-			xhr.onload = function() {
-				this.mixer._addStaticAudio(this.response);
-			};
-			xhr.send();
+			sample = new Audio(url);
+			sample.loop = true;
+			sample.src = url;
+			sampleSource = this.context.createMediaElementSource(sample);
+			osc = this.context.createOscillator();
+			osc.frequency.value = Math.random();
+
+			oscGain = this.context.createGain();
+			oscGain.gain.value = 0.4;
+
+			playerGain = this.context.createGain();
+
+			osc.connect(oscGain);
+			oscGain.connect(playerGain.gain);
+			sampleSource.connect(playerGain);
+			playerGain.connect(this.staticsGain);
+
+			osc.start(0);
+			sample.play();
 		}, this);
 	}
-
-	AudioMixer.prototype._addStaticAudio = function(buffer) {
-		this.context.decodeAudioData(buffer, this._onAudioDecode.bind(this), this._onAudioDecodeError.bind(this));
-
-	};
-
-	AudioMixer.prototype._onAudioDecode = function(buffer) {
-		if (!buffer) throw new Error('Could not decode AudioMixer statics audio');
-		
-		var player = this.context.createBufferSource();
-		player.buffer = buffer;
-		player.loop = true;
-
-		var osc = this.context.createOscillator();
-		osc.frequency.value = Math.random();
-
-		var oscGain = this.context.createGain();
-		oscGain.gain.value = 0.4;
-
-		var playerGain = this.context.createGain();
-
-		osc.connect(oscGain);
-		oscGain.connect(playerGain.gain);
-		player.connect(playerGain);
-		playerGain.connect(this.staticsGain);
-
-		osc.start(0);
-		player.start(0);
-	};
-
-	AudioMixer.prototype._onAudioDecodeError = function(e) {
-		throw e;
-	};
 
 	AudioMixer.prototype.attachSource = function(source){
 		source.connect(this.stationGain);

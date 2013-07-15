@@ -12,7 +12,7 @@ define([
 		// of Seriously as an option, which supports only two sources.
 		this._mixNode = this.seriously.effect('blend');
 		this._$statics = [];
-		this._$currentStatic;
+		this._$currentStatic = null;
 		this._oldTuneValue = 0;
 
 		if (statics.files.length > 0) {
@@ -57,7 +57,10 @@ define([
 	};
 
 	VideoMixer.prototype.detachSource = function(source) {
-		this._mixNode.bottom = null;
+		// blend effect breaks when either bottom or top are null
+		// therefore set both to the currentStatic element
+		// when detaching station
+		this._mixNode.bottom = this._mixNode.top;
 	};
 
 	VideoMixer.prototype._getRandomStaticEl = function() {

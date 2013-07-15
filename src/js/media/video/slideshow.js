@@ -43,20 +43,8 @@ define([
 		this._blendPause = options.interval || 5000; // pause between blendings
 
 		this._effects = [];
+		this._filters = options.filters;
 		this._output = this._blender;
-
-		options.filters.forEach(function(properties, index){
-			var effect = this._createEffect(properties);
-
-			if (index > 0) {
-				this._output.connect(effect);
-			} else {
-				effect.setInput(this._blender);
-			}
-
-			this._effects.push(effect);
-			this._output = effect;
-		}, this);
 	}
 
 	Class.inherits(SlideShow, Media);
@@ -74,7 +62,21 @@ define([
 	};
 
 	SlideShow.prototype.load = function() {
+		// create effects
+		this._filters.forEach(function(properties, index){
+			var effect = this._createEffect(properties);
 
+			if (index > 0) {
+				this._output.connect(effect);
+			} else {
+				effect.setInput(this._blender);
+			}
+
+			this._effects.push(effect);
+			this._output = effect;
+		}, this);
+
+		// attach to mixer
 		if (this._effects.length) {
 			mixer.video.attachSource(this._output.getOutput());
 		} else {
@@ -85,20 +87,28 @@ define([
 		this._loaded = true;
 		requestAnimFrame(this._onAnimFrame.bind(this));
 
+		// start blend interval
 		this._blendInterval = setInterval(function() {
 			this._blend();
 		}.bind(this), this._blendPause);
 	};
 
 	SlideShow.prototype.unload = function() {
-		if (this._effects.length) {
-			mixer.video.detachSource(this._output.getOutput());
-		} else {
-			mixer.video.detachSource(this._output);
-		}
+		// detach source first
+		mixer.video.detachSource();
 
-		this._loaded = false;
+		// clear interval and prevent animLoop from continuing
 		clearInterval(this._blendInterval);
+		this._loaded = false;
+
+		// destroy effect nodes
+		this._effects.forEach(function(effect) {
+			effect.getOutput().destroy();
+		});
+		this._effects = [];
+
+		// reset output
+		this._output = this._blender;
 	};
 
 	SlideShow.prototype._blend = function() {

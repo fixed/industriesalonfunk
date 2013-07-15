@@ -11,8 +11,7 @@
 			"video" : {
 				"file": "media/AEG/video.mp4",
 				"filters" : [
-					{ "name" : "tvGlitch", "min" : 0.0, "max" : 0.5 },
-					{ "name" : "noise", "min" : 0.1, "max" : 0.4 },
+					{ "name" : "tvGlitch", "min" : 0.0, "max" : 0.3 },
 					{ "name" : "scanlines", "min" : 0.1, "max" : 0.6 }
 				]
 			},
@@ -65,8 +64,8 @@
 					"media/Zeitzeugen_1/slides/P6180140.jpg"
 				],
 				"filters" : [
-					{ "name" : "tvGlitch", "min" : 0.0, "max" : 0.8 },
-					{ "name" : "noise", "min" : 0.0, "max" : 0.9 },
+					{ "name" : "tvGlitch", "min" : 0.0, "max" : 0.5 },
+					{ "name" : "noise", "min" : 0.0, "max" : 0.3 },
 					{ "name" : "bleachBypass", "min" : 0.0, "max" : 0.9 },
 					{ "name" : "bw" }
 				]
@@ -84,8 +83,7 @@
 			"video" : {
 				"file": "media/Comedy/video.mp4",
 				"filters" : [
-					{ "name" : "tvGlitch", "min" : 0.0, "max" : 0.8 },
-					{ "name" : "noise", "min" : 0.0, "max" : 0.4 },
+					{ "name" : "tvGlitch", "min" : 0.0, "max" : 0.4 },
 					{ "name" : "scanlines", "min" : 0.0, "max" : 0.6 },
 					{ "name" : "sepia" }
 				]
@@ -103,8 +101,7 @@
 			"video" : {
 				"file": "media/Feierei/video.mp4",
 				"filters" : [
-					{ "name" : "tvGlitch", "min" : 0.0, "max" : 0.8 },
-					{ "name" : "noise", "min" : 0.0, "max" : 0.3 },
+					{ "name" : "tvGlitch", "min" : 0.0, "max" : 0.4 },
 					{ "name" : "scanlines", "min" : 0.0, "max" : 0.6 }
 				]
 			},
@@ -121,10 +118,9 @@
 			"video" : {
 				"file": "media/Arbeiter_Funk/video.mp4",
 				"filters" : [
-					{ "name" : "tvGlitch", "min" : 0.0, "max" : 0.8 },
+					{ "name" : "tvGlitch", "min" : 0.0, "max" : 0.4 },
 					{ "name" : "noise", "min" : 0.0, "max" : 0.3 },
-					{ "name" : "scanlines", "min" : 0.0, "max" : 0.6 },
-					{ "name" : "bleachBypass", "min" : 0.0, "max" : 0.5 }
+					{ "name" : "scanlines", "min" : 0.0, "max" : 0.6 }
 				]
 			},
 			"distribution": [ 0.1, 0.3, 0.4, 0.9] 
@@ -159,8 +155,8 @@
 					"media/Polittalk/slides/P6180157.jpg"
 				],
 				"filters" : [
-					{ "name" : "tvGlitch", "min" : 0.0, "max" : 0.8 },
-					{ "name" : "noise", "min" : 0.0, "max" : 0.9 },
+					{ "name" : "tvGlitch", "min" : 0.0, "max" : 0.5 },
+					{ "name" : "noise", "min" : 0.0, "max" : 0.4 },
 					{ "name" : "bleachBypass", "min" : 0.0, "max" : 0.9 },
 					{ "name" : "bw" }
 				]
@@ -196,8 +192,8 @@
 					"media/Sarnoch_On_Air/slides/P6180193.jpg"
 				],
 				"filters" : [
-					{ "name" : "tvGlitch", "min" : 0.0, "max" : 0.8 },
-					{ "name" : "noise", "min" : 0.0, "max" : 0.9 },
+					{ "name" : "tvGlitch", "min" : 0.0, "max" : 0.7 },
+					{ "name" : "noise", "min" : 0.0, "max" : 0.4 },
 					{ "name" : "bleachBypass", "min" : 0.0, "max" : 0.3 },
 					{ "name" : "sepia" }
 				]
@@ -247,8 +243,8 @@
 					"media/Zeitzeugen_2/slides/P6180151.jpg"
 				],
 				"filters" : [
-					{ "name" : "tvGlitch", "min" : 0.0, "max" : 0.8 },
-					{ "name" : "noise", "min" : 0.0, "max" : 0.9 },
+					{ "name" : "tvGlitch", "min" : 0.0, "max" : 0.6 },
+					{ "name" : "noise", "min" : 0.0, "max" : 0.5 },
 					{ "name" : "bleachBypass", "min" : 0.0, "max" : 0.3 }
 				]
 			},

@@ -10,27 +10,17 @@
 			},
 			"video" : {
 				"file": "media/AEG/video.mp4",
-				"filters" : []
-			},
-			"distribution": [ 0.1, 0.3, 0.4, 0.9] 
-		},
-		{
-			"name": "Arbeiter_Funk",
-			"range" : [0.15, 0.25],
-			"audio" : {
-				"file": "media/Arbeiter_Funk/audio_192kb.mp3",
-				"volume" : 1,
-				"filters" : []
-			},
-			"video" : {
-				"file": "media/Arbeiter_Funk/video.mp4",
-				"filters" : []
+				"filters" : [
+					{ "name" : "tvGlitch", "min" : 0.0, "max" : 0.5 },
+					{ "name" : "noise", "min" : 0.1, "max" : 0.4 },
+					{ "name" : "scanlines", "min" : 0.1, "max" : 0.6 }
+				]
 			},
 			"distribution": [ 0.1, 0.3, 0.4, 0.9] 
 		},
 		{
 			"name": "Zeitzeugen_1",
-			"range" : [0.3, 0.4],
+			"range" : [0.13, 0.23],
 			"audio" : {
 				"file": "media/Zeitzeugen_1/audio_256kb.mp3",
 				"volume" : 1,
@@ -74,13 +64,18 @@
 					"media/Zeitzeugen_1/slides/P6180128.jpg",
 					"media/Zeitzeugen_1/slides/P6180140.jpg"
 				],
-				"filters" : []
+				"filters" : [
+					{ "name" : "tvGlitch", "min" : 0.0, "max" : 0.8 },
+					{ "name" : "noise", "min" : 0.0, "max" : 0.9 },
+					{ "name" : "bleachBypass", "min" : 0.0, "max" : 0.9 },
+					{ "name" : "bw" }
+				]
 			},
 			"distribution": [ 0.1, 0.3, 0.4, 0.9] 
 		},
 		{
 			"name": "Comedy",
-			"range" : [0.45, 0.55],
+			"range" : [0.26, 0.36],
 			"audio" : {
 				"file": "media/Comedy/audio_256kb.mp3",
 				"volume" : 1,
@@ -88,13 +83,18 @@
 			},
 			"video" : {
 				"file": "media/Comedy/video.mp4",
-				"filters" : []
+				"filters" : [
+					{ "name" : "tvGlitch", "min" : 0.0, "max" : 0.8 },
+					{ "name" : "noise", "min" : 0.0, "max" : 0.4 },
+					{ "name" : "scanlines", "min" : 0.0, "max" : 0.6 },
+					{ "name" : "sepia" }
+				]
 			},
 			"distribution": [ 0.1, 0.3, 0.4, 0.9] 
 		},
 		{
 			"name": "Feierei",
-			"range" : [0.6, 0.65],
+			"range" : [0.39, 0.49],
 			"audio" : {
 				"file": "media/Feierei/audio_256kb.mp3",
 				"volume" : 1,
@@ -102,13 +102,36 @@
 			},
 			"video" : {
 				"file": "media/Feierei/video.mp4",
+				"filters" : [
+					{ "name" : "tvGlitch", "min" : 0.0, "max" : 0.8 },
+					{ "name" : "noise", "min" : 0.0, "max" : 0.3 },
+					{ "name" : "scanlines", "min" : 0.0, "max" : 0.6 }
+				]
+			},
+			"distribution": [ 0.1, 0.3, 0.4, 0.9] 
+		},
+		{
+			"name": "Arbeiter_Funk",
+			"range" : [0.52, 0.62],
+			"audio" : {
+				"file": "media/Arbeiter_Funk/audio_192kb.mp3",
+				"volume" : 1,
 				"filters" : []
+			},
+			"video" : {
+				"file": "media/Arbeiter_Funk/video.mp4",
+				"filters" : [
+					{ "name" : "tvGlitch", "min" : 0.0, "max" : 0.8 },
+					{ "name" : "noise", "min" : 0.0, "max" : 0.3 },
+					{ "name" : "scanlines", "min" : 0.0, "max" : 0.6 },
+					{ "name" : "bleachBypass", "min" : 0.0, "max" : 0.5 }
+				]
 			},
 			"distribution": [ 0.1, 0.3, 0.4, 0.9] 
 		},
 		{
 			"name": "Polittalk",
-			"range" : [0.7, 0.8],
+			"range" : [0.65, 0.75],
 			"audio" : {
 				"file": "media/Polittalk/audio_256kb.mp3",
 				"volume" : 1,
@@ -135,13 +158,18 @@
 					"media/Polittalk/slides/P6180132.jpg",
 					"media/Polittalk/slides/P6180157.jpg"
 				],
-				"filters" : []
+				"filters" : [
+					{ "name" : "tvGlitch", "min" : 0.0, "max" : 0.8 },
+					{ "name" : "noise", "min" : 0.0, "max" : 0.9 },
+					{ "name" : "bleachBypass", "min" : 0.0, "max" : 0.9 },
+					{ "name" : "bw" }
+				]
 			},
 			"distribution": [ 0.1, 0.3, 0.4, 0.9] 
 		},
 		{
 			"name": "Sarnoch_On_Air",
-			"range" : [0.8, 0.9],
+			"range" : [0.78, 0.88],
 			"audio" : {
 				"file": "media/Sarnoch_On_Air/audio_256kb.mp3",
 				"volume" : 1,
@@ -167,7 +195,12 @@
 					"media/Sarnoch_On_Air/slides/P6180192.jpg",
 					"media/Sarnoch_On_Air/slides/P6180193.jpg"
 				],
-				"filters" : []
+				"filters" : [
+					{ "name" : "tvGlitch", "min" : 0.0, "max" : 0.8 },
+					{ "name" : "noise", "min" : 0.0, "max" : 0.9 },
+					{ "name" : "bleachBypass", "min" : 0.0, "max" : 0.3 },
+					{ "name" : "sepia" }
+				]
 			},
 			"distribution": [ 0.1, 0.3, 0.4, 0.9] 
 		},
@@ -213,7 +246,11 @@
 					"media/Zeitzeugen_2/slides/P6180150.jpg",
 					"media/Zeitzeugen_2/slides/P6180151.jpg"
 				],
-				"filters" : []
+				"filters" : [
+					{ "name" : "tvGlitch", "min" : 0.0, "max" : 0.8 },
+					{ "name" : "noise", "min" : 0.0, "max" : 0.9 },
+					{ "name" : "bleachBypass", "min" : 0.0, "max" : 0.3 }
+				]
 			},
 			"distribution": [ 0.1, 0.3, 0.4, 0.9] 
 		}

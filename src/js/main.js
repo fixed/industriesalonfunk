@@ -18,7 +18,7 @@ require([
 ],function(domReady, tuner, receiver, mixer){
 	domReady(function(){
 
-		$.getJSON('../config_test.json').success(function(config){
+		$.getJSON('../config_radio.json').success(function(config){
 
 			mixer.init({
 				statics : config.statics

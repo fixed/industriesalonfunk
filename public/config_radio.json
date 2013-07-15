@@ -1,0 +1,263 @@
+{
+	"stations" : [
+		{
+			"name": "AEG",
+			"range" : [0.0, 0.1],
+			"audio" : {
+				"file": "media/AEG/audio_192kb.mp3",
+				"volume" : 1,
+				"filters" : []
+			},
+			"video" : {
+				"file": "media/AEG/video.mp4",
+				"filters" : []
+			},
+			"distribution": [ 0.1, 0.3, 0.4, 0.9] 
+		},
+		{
+			"name": "Arbeiter_Funk",
+			"range" : [0.1, 0.2],
+			"audio" : {
+				"file": "media/Arbeiter_Funk/audio_192kb.mp3",
+				"volume" : 1,
+				"filters" : []
+			},
+			"video" : {
+				"file": "media/Arbeiter_Funk/video.mp4",
+				"filters" : []
+			},
+			"distribution": [ 0.1, 0.3, 0.4, 0.9] 
+		},
+		{
+			"name": "Comedy",
+			"range" : [0.2, 0.3],
+			"audio" : {
+				"file": "media/Comedy/audio_256kb.mp3",
+				"volume" : 1,
+				"filters" : []
+			},
+			"video" : {
+				"file": "media/Comedy/video.mp4",
+				"filters" : []
+			},
+			"distribution": [ 0.1, 0.3, 0.4, 0.9] 
+		},
+		{
+			"name": "Feierei",
+			"range" : [0.3, 0.4],
+			"audio" : {
+				"file": "media/Feierei/audio_256kb.mp3",
+				"volume" : 1,
+				"filters" : []
+			},
+			"video" : {
+				"file": "media/Feierei/video.mp4",
+				"filters" : []
+			},
+			"distribution": [ 0.1, 0.3, 0.4, 0.9] 
+		},
+		{
+			"name": "Mauerfall_News",
+			"range" : [0.4, 0.5],
+			"audio" : {
+				"file": "media/Mauerfall_News/audio_256kb.mp3",
+				"volume" : 1,
+				"filters" : []
+			},
+			"video" : {
+				"file": "media/Mauerfall_News/video.mp4",
+				"filters" : []
+			},
+			"distribution": [ 0.1, 0.3, 0.4, 0.9] 
+		},
+		{
+			"name": "Polittalk",
+			"range" : [0.5, 0.6],
+			"audio" : {
+				"file": "media/Polittalk/audio_256kb.mp3",
+				"volume" : 1,
+				"filters" : []
+			},
+			"slides" : {
+				"files": [
+					"media/Polittalk/slides/IS50627 V.jpg",
+					"media/Polittalk/slides/IS50804 V.jpg",
+					"media/Polittalk/slides/P6180007-2.jpg",
+					"media/Polittalk/slides/P6180007-3.jpg",
+					"media/Polittalk/slides/P6180007-4.jpg",
+					"media/Polittalk/slides/P6180007-5.jpg",
+					"media/Polittalk/slides/P6180007-6.jpg",
+					"media/Polittalk/slides/P6180007.jpg",
+					"media/Polittalk/slides/P6180008-2.jpg",
+					"media/Polittalk/slides/P6180008-3.jpg",
+					"media/Polittalk/slides/P6180008-4.jpg",
+					"media/Polittalk/slides/P6180008.jpg",
+					"media/Polittalk/slides/P6180047-2.jpg",
+					"media/Polittalk/slides/P6180047.jpg",
+					"media/Polittalk/slides/P6180049.jpg",
+					"media/Polittalk/slides/P6180101-2.jpg",
+					"media/Polittalk/slides/P6180132.jpg",
+					"media/Polittalk/slides/P6180157.jpg"
+				],
+				"filters" : []
+			},
+			"distribution": [ 0.1, 0.3, 0.4, 0.9] 
+		},
+		{
+			"name": "Sarnoch_On_Air",
+			"range" : [0.6, 0.7],
+			"audio" : {
+				"file": "media/Sarnoch_On_Air/audio_256kb.mp3",
+				"volume" : 1,
+				"filters" : []
+			},
+			"slides" : {
+				"files": [
+					"media/Sarnoch_On_Air/slides/IS50635 V.jpg",
+					"media/Sarnoch_On_Air/slides/IS50662 V.jpg",
+					"media/Sarnoch_On_Air/slides/P6180002-3.jpg",
+					"media/Sarnoch_On_Air/slides/P6180034.jpg",
+					"media/Sarnoch_On_Air/slides/P6180090.jpg",
+					"media/Sarnoch_On_Air/slides/P6180093.jpg",
+					"media/Sarnoch_On_Air/slides/P6180103.jpg",
+					"media/Sarnoch_On_Air/slides/P6180170.jpg",
+					"media/Sarnoch_On_Air/slides/P6180171.jpg",
+					"media/Sarnoch_On_Air/slides/P6180172.jpg",
+					"media/Sarnoch_On_Air/slides/P6180173.jpg",
+					"media/Sarnoch_On_Air/slides/P6180174.jpg",
+					"media/Sarnoch_On_Air/slides/P6180175.jpg",
+					"media/Sarnoch_On_Air/slides/P6180176.jpg",
+					"media/Sarnoch_On_Air/slides/P6180190.jpg",
+					"media/Sarnoch_On_Air/slides/P6180192.jpg",
+					"media/Sarnoch_On_Air/slides/P6180193.jpg"
+				],
+				"filters" : []
+			},
+			"distribution": [ 0.1, 0.3, 0.4, 0.9] 
+		},
+		{
+			"name": "Sozi_Jugend",
+			"range" : [0.7, 0.8],
+			"audio" : {
+				"file": "media/Sozi_Jugend/audio_256kb.mp3",
+				"volume" : 1,
+				"filters" : []
+			},
+			"video" : {
+				"file": "media/Sarnoch_On_Air/video.mp4",
+				"filters" : []
+			},
+			"distribution": [ 0.1, 0.3, 0.4, 0.9] 
+		},
+		{
+			"name": "Zeitzeugen_1",
+			"range" : [0.8, 0.9],
+			"audio" : {
+				"file": "media/Zeitzeugen_1/audio_256kb.mp3",
+				"volume" : 1,
+				"filters" : []
+			},
+			"slides" : {
+				"files": [
+					"media/Zeitzeugen_1/slides/IS-SWK-00003-2013 V.jpg",
+					"media/Zeitzeugen_1/slides/IS-SWK-00004-2013 V.jpg",
+					"media/Zeitzeugen_1/slides/IS-SWK-00076-2013.jpg",
+					"media/Zeitzeugen_1/slides/IS-SWK-00077-2013.jpg",
+					"media/Zeitzeugen_1/slides/IS-SWK-00086-2013 V.jpg",
+					"media/Zeitzeugen_1/slides/IS-SWK-00089-2013 V.jpg",
+					"media/Zeitzeugen_1/slides/IS-SWK-00092-2013 V.jpg",
+					"media/Zeitzeugen_1/slides/IS-SWK-00105-2013 V.jpg",
+					"media/Zeitzeugen_1/slides/IS-SWK-00107-2013 V.jpg",
+					"media/Zeitzeugen_1/slides/IS-SWK-00109-2013 V.jpg",
+					"media/Zeitzeugen_1/slides/IS-SWK-00111-2013 V.jpg",
+					"media/Zeitzeugen_1/slides/IS-SWK-00113-2013 V.jpg",
+					"media/Zeitzeugen_1/slides/IS-SWK-00115-2013 V.jpg",
+					"media/Zeitzeugen_1/slides/IS-SWK-00116-2013 V.jpg",
+					"media/Zeitzeugen_1/slides/IS-SWK-00119-2013 V.jpg",
+					"media/Zeitzeugen_1/slides/IS-SWK-00120-2013 V.jpg",
+					"media/Zeitzeugen_1/slides/IS-SWK-00124-2013 V.jpg",
+					"media/Zeitzeugen_1/slides/IS-SWK-00127-2013 V.jpg",
+					"media/Zeitzeugen_1/slides/IS-SWK-00141-2013 V.jpg",
+					"media/Zeitzeugen_1/slides/IS-SWK-00142-2013 V.jpg",
+					"media/Zeitzeugen_1/slides/IS-SWK-00144-2013 V.jpg",
+					"media/Zeitzeugen_1/slides/IS-SWK-00145-2013 V-2.jpg",
+					"media/Zeitzeugen_1/slides/IS-SWK-00145-2013 V-3.jpg",
+					"media/Zeitzeugen_1/slides/IS-SWK-00145-2013 V.jpg",
+					"media/Zeitzeugen_1/slides/IS-SWK-00159-2013 V.jpg",
+					"media/Zeitzeugen_1/slides/IS-SWK-00161-2013 V.jpg",
+					"media/Zeitzeugen_1/slides/IS-SWK-00162-2013 V.jpg",
+					"media/Zeitzeugen_1/slides/IS-SWK-00165-2013 V.jpg",
+					"media/Zeitzeugen_1/slides/IS-SWK-00169-2013 V.jpg",
+					"media/Zeitzeugen_1/slides/IS50831 V.jpg",
+					"media/Zeitzeugen_1/slides/P6180102.jpg",
+					"media/Zeitzeugen_1/slides/P6180104.jpg",
+					"media/Zeitzeugen_1/slides/P6180114.jpg",
+					"media/Zeitzeugen_1/slides/P6180128.jpg",
+					"media/Zeitzeugen_1/slides/P6180140.jpg"
+				],
+				"filters" : []
+			},
+			"distribution": [ 0.1, 0.3, 0.4, 0.9] 
+		},
+		{
+			"name": "Zeitzeugen_2",
+			"range" : [0.9, 1],
+			"audio" : {
+				"file": "media/Zeitzeugen_2/audio_256kb.mp3",
+				"volume" : 1,
+				"filters" : []
+			},
+			"slides" : {
+				"files": [
+					"media/Zeitzeugen_2/slides/IS50468 V.jpg",
+					"media/Zeitzeugen_2/slides/IS50482 V.jpg",
+					"media/Zeitzeugen_2/slides/IS50538 V.jpg",
+					"media/Zeitzeugen_2/slides/IS50613 V.jpg",
+					"media/Zeitzeugen_2/slides/IS50647 V.jpg",
+					"media/Zeitzeugen_2/slides/IS50691 V.jpg",
+					"media/Zeitzeugen_2/slides/IS50716 V.jpg",
+					"media/Zeitzeugen_2/slides/IS50729 V.jpg",
+					"media/Zeitzeugen_2/slides/IS50765 V.jpg",
+					"media/Zeitzeugen_2/slides/IS50766 V.jpg",
+					"media/Zeitzeugen_2/slides/IS50786 V.jpg",
+					"media/Zeitzeugen_2/slides/P6180035.jpg",
+					"media/Zeitzeugen_2/slides/P6180050.jpg",
+					"media/Zeitzeugen_2/slides/P6180052.jpg",
+					"media/Zeitzeugen_2/slides/P6180054.jpg",
+					"media/Zeitzeugen_2/slides/P6180056.jpg",
+					"media/Zeitzeugen_2/slides/P6180057.jpg",
+					"media/Zeitzeugen_2/slides/P6180058.jpg",
+					"media/Zeitzeugen_2/slides/P6180059.jpg",
+					"media/Zeitzeugen_2/slides/P6180060.jpg",
+					"media/Zeitzeugen_2/slides/P6180061.jpg",
+					"media/Zeitzeugen_2/slides/P6180062-2.jpg",
+					"media/Zeitzeugen_2/slides/P6180062.jpg",
+					"media/Zeitzeugen_2/slides/P6180142.jpg",
+					"media/Zeitzeugen_2/slides/P6180144.jpg",
+					"media/Zeitzeugen_2/slides/P6180146-2.jpg",
+					"media/Zeitzeugen_2/slides/P6180146.jpg",
+					"media/Zeitzeugen_2/slides/P6180148.jpg",
+					"media/Zeitzeugen_2/slides/P6180149.jpg",
+					"media/Zeitzeugen_2/slides/P6180150.jpg",
+					"media/Zeitzeugen_2/slides/P6180151.jpg"
+				],
+				"filters" : []
+			},
+			"distribution": [ 0.1, 0.3, 0.4, 0.9] 
+		}
+	],
+	"statics" : {
+		"video" : {
+			"files" : [
+				"media/_statics/tv_noise.mp4",
+				"media/_statics/looping_static_1.mp4",
+				"media/_statics/looping_static_2.mp4",
+				"media/_statics/static_1.mp4",
+				"media/_statics/static_2.mp4"
+			]
+		},
+		"audio" : {
+			"files" : ["media/_statics/98338__cgeffex__tuning-am-radio.wav"]
+		}
+	}
+}

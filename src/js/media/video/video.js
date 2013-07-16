@@ -24,13 +24,12 @@ define([
 	function VideoMedia(options){
 		Media.call(this);
 
-		this._$video = $('<video loop src="'+options.file+'">');
-		this._$video[0].volume = 0;
-		this._videoSource = mixer.video.seriously.source(this._$video[0]);
+		this._file = options.file;
+		this._currentTime = 0;
+		this._output = null;
 
 		this._effects = [];
 		this._filters = options.filters;
-		this._output = this._videoSource;
 		this._loaded = false;
 	}
 
@@ -48,6 +47,18 @@ define([
 	};
 
 	VideoMedia.prototype.load = function(){
+		this._$video = $('<video loop src="' + this._file +'">');
+		this._$video[0].volume = 0;
+
+		// when loaded set currentTime
+		this._$video.on('loadedmetadata', function(){
+			if (this._$video){
+				this._$video[0].currentTime = this._currentTime;
+			}
+		}.bind(this));
+		
+		this._output = mixer.video.seriously.source(this._$video[0]);
+
 		this._filters.forEach(function(properties, index){
 			var effect = this._createEffect(properties);
 
@@ -77,6 +88,9 @@ define([
 
 	VideoMedia.prototype.unload = function(){
 		this._loaded = false;
+		this._currentTime = this._$video[0].currentTime;
+		this._$video[0].pause();
+
 		mixer.video.detachSource();
 		
 		// destroy effect nodes
@@ -85,8 +99,10 @@ define([
 		});
 		this._effects = [];
 
-		this._output = this._videoSource;
-		this._$video[0].pause();
+		this._$video.remove();
+		delete(this._$video);
+		this._$video = null;
+		this._output = null;
 	};
 
 	VideoMedia.prototype._onAnimFrame =  function() {
